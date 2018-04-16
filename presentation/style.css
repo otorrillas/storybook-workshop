@@ -1,0 +1,5 @@
+.spectacle-deck {
+  border-bottom: 10px solid transparent;
+  border-image: linear-gradient(to right, #DE2728 , #231344);
+  border-image-slice: 1;
+}
