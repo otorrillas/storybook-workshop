@@ -12,13 +12,11 @@ import { ScaleLoader } from "react-spinners";
 import createTheme from "spectacle/lib/themes/default";
 
 import "./style.css";
-
 import advancedConfig from "../assets/advanced-config.png";
 import basicConfig from "../assets/basic-config.png";
 import basicStory from "../assets/basic-story.png";
 import buildStorybook from "../assets/build-storybook.png";
 import customWebpack from "../assets/custom-webpack.png";
-import folderStructure from "../assets/folder-structure.png";
 import storybook from "../assets/storybook.png";
 
 const theme = createTheme(
@@ -52,10 +50,6 @@ const cursor = {
 const Tick = () => <span style={{ color: "#33B969" }}>✓</span>;
 const Info = () => <span style={{ color: "#33B969" }}>info</span>;
 
-// const images = {
-//   advancedConfig: require("./assets/advanced-config.png")
-// };
-
 export default class Presentation extends React.Component {
   render() {
     return (
@@ -65,7 +59,20 @@ export default class Presentation extends React.Component {
             Storybook
           </Heading>
           <Text margin="10px 0 0" textColor="secondary" size={1} fit bold>
-            Workshop: introduction and setup
+            Introduction, setup and tips
+          </Text>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading size={1} textColor="primary">
+            About me
+          </Heading>
+          <p>Oriol Torrillas</p>
+          <p>Interactive Developer @ Sapient</p>
+          <p margin="10px 0 0" textColor="secondary" fit>
+            github.com/otorrillas
+          </p>
+          <Text margin="10px 0 0" textColor="secondary" size={2}>
+            <span>🚴🏽</span> <span>🏊</span> <span>📷</span>
           </Text>
         </Slide>
         <Slide {...slideProps}>
@@ -76,9 +83,8 @@ export default class Presentation extends React.Component {
             <ListItem>Introduction to Storybook</ListItem>
             <ListItem>Basic setup</ListItem>
             <ListItem>Custom configuration</ListItem>
-            <ListItem>Testing with Storybook - by Pete Warman</ListItem>
-            <ListItem>Interactive setup demo</ListItem>
-            <ListItem>Workshop - setup your own project</ListItem>
+            <ListItem>Addons</ListItem>
+            <ListItem>Q&A</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -86,9 +92,15 @@ export default class Presentation extends React.Component {
             What is Storybook?
           </Heading>
           <Text margin="20px 0 0" textColor="secondary" size={2} fit>
-            UI development environment to visualize components
+            UI environment for developing components in <b>isolation</b>
           </Text>
           <img src={storybook} height="650px" />
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading size={1} textColor="primary" margin="0 0 50px">
+            Writing a story
+          </Heading>
+          <img src={basicStory} width="100%" />
         </Slide>
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary">
@@ -103,7 +115,7 @@ export default class Presentation extends React.Component {
                 cd my-project
               </Typist>,
               <Typist key="npm-i-storybook" cursor={cursor}>
-                npm i -g @storybook/cli
+                npx @storybook/cli getstorybook
               </Typist>,
               [
                 <div
@@ -124,9 +136,6 @@ export default class Presentation extends React.Component {
                   ⚡️ Dependencies installed!
                 </div>
               ],
-              <Typist key="getstorybook" cursor={cursor}>
-                getstorybook
-              </Typist>,
               <p key="simplest-way">
                 <span style={{ backgroundColor: "#9D9D9D", marginLeft: "5px" }}>
                   getstorybook - the simplest way to add a storybook to your
@@ -186,7 +195,7 @@ export default class Presentation extends React.Component {
                     color: "#FFFFFF"
                   }}
                 >
-                  yarn run storybook
+                  yarn storybook
                 </span>
                 <p>
                   For more information visit:{" "}
@@ -195,7 +204,7 @@ export default class Presentation extends React.Component {
               </div>,
               [
                 <div key="run-storybook">
-                  <Typist cursor={cursor}>yarn run storybook</Typist>
+                  <Typist cursor={cursor}>yarn storybook</Typist>
                   <br />
                 </div>,
                 <div
@@ -239,23 +248,6 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide {...slideProps}>
-          <Heading size={1} textColor="primary">
-            Configuration
-          </Heading>
-        </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 50px">
-            Folder structure
-          </Heading>
-          <img src={folderStructure} />
-        </Slide>
-        <Slide {...slideProps}>
-          <Heading size={1} textColor="primary" margin="0 0 50px">
-            Writing a story
-          </Heading>
-          <img src={basicStory} width="100%" />
-        </Slide>
-        <Slide {...slideProps}>
           <Heading size={1} textColor="primary" margin="0 0 50px">
             Sample config
           </Heading>
@@ -269,7 +261,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary" margin="0 0 50px">
-            Custom webpack
+            Custom webpack config
           </Heading>
           <img src={customWebpack} width="100%" />
         </Slide>
@@ -281,73 +273,16 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary" margin="0 0 50px">
-            Static export
+            Extra
           </Heading>
-          <Terminal
-            isMaximized={false}
-            title="otorrillas@storybook: ~(fish)"
-            output={[
-              <Typist key="yarn-build-storybook" cursor={cursor}>
-                yarn build-storybook
-              </Typist>,
-              <div
-                key="build-storybook"
-                style={{
-                  marginLeft: "10px",
-                  lineHeight: "10px",
-                  color: "#9D9D9D"
-                }}
-              >
-                <p>yarn run v1.5.1</p>
-                <p style={{ color: "#707070" }}>$ build-storybook -s public</p>
-                <p>
-                  <Info /> @storybook/react v3.4.1
-                </p>
-                <p>
-                  <Info />
-                </p>
-                <p>
-                  <Info /> => Loading static files from:
-                  /Users/oritorri/Sapient/workshops/test/public .
-                </p>
-                <p>
-                  <Info /> => Loading custom addons config.
-                </p>
-                <p>
-                  <Info /> => Using default webpack setup based on "Create React
-                  App".
-                </p>
-                <p>
-                  <Info /> => Copying static files from: public
-                </p>
-                <p>
-                  <Info /> Building storybook ...
-                </p>
-              </div>,
-              <div
-                key="building-storybook"
-                style={{
-                  marginLeft: "10px"
-                }}
-              >
-                <p>
-                  <Info /> Building storybook completed.
-                </p>
-                <p>✨ Done in 21.83s.</p>
-              </div>
-            ]}
-          />
+          <Text margin="20px 0 0" textColor="secondary" size={2} fit bold>
+            Deploying to Github Pages
+          </Text>
         </Slide>
         <Slide {...slideProps}>
-          <Heading size={2} textColor="primary">
-            Testing with
+          <Heading size={1} textColor="primary">
+            Addons
           </Heading>
-          <Heading size={1} textColor="primary" caps bold>
-            Storyboook
-          </Heading>
-          <Text margin="10px 0 0" textColor="secondary" bold>
-            By Pete Warman
-          </Text>
         </Slide>
       </Deck>
     );
