@@ -17,7 +17,7 @@ import basicConfig from "../assets/basic-config.png";
 import basicStory from "../assets/basic-story.png";
 import buildStorybook from "../assets/build-storybook.png";
 import customWebpack from "../assets/custom-webpack.png";
-import storybook from "../assets/storybook.png";
+import storybook from "../assets/storybook.gif";
 
 const theme = createTheme(
   {
@@ -94,7 +94,7 @@ export default class Presentation extends React.Component {
           <Text margin="20px 0 0" textColor="secondary" size={2} fit>
             UI environment for developing components in <b>isolation</b>
           </Text>
-          <img src={storybook} height="650px" />
+          <img src={storybook} />
         </Slide>
         <Slide {...slideProps}>
           <Heading size={1} textColor="primary" margin="0 0 50px">
